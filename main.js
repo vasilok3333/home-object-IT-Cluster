@@ -1,4 +1,4 @@
-// Я ще не встиг доробити 2 завдання, на середу зроблю..(( 
+
 
 
 // Task 1 
@@ -217,3 +217,87 @@ deleteCountProduct(SHOPPING_LIST, 'orange');
 console.log(SHOPPING_LIST.orange);
 deleteCountProduct(SHOPPING_LIST, 'orange');
 console.log(SHOPPING_LIST.orange);
+
+//TASK 4 
+
+const USERS = [{
+        name: "Yura",
+        age: 55,
+        hobby: ["films", "games", "hiking"],
+        type: "Admin"
+    },
+    {
+        name: "Vasyl",
+        age: 27,
+        hobby: ["football", "TV", "coins"],
+        type: "user"
+    },
+    {
+        name: "Yulian",
+        age: 28,
+        hobby: ["films", "games", "music"],
+        type: "user"
+    },
+    {
+        name: "Maksym",
+        age: 31,
+        hobby: ["films", "football", "games"],
+        type: "user"
+    },
+    {
+        name: "Alina",
+        age: 34,
+        hobby: ["games", "films", "piano"],
+        type: "Admin"
+    },
+    {
+        name: "Irina",
+        age: 30,
+        hobby: ["TV", "films", "piano"],
+        type: "user"
+    }
+];
+
+function getAdmins(users) {
+    let admins = [];
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].type === "Admin") admins.push(users[i].name)
+    };
+    console.log(admins.join(','));
+};
+
+function getAvarageAge(users) {
+    let avarageAge = 0;
+    for (let i = 0; i < users.length; i++) {
+        avarageAge += users[i].age;
+    };
+    avarageAge = Math.floor(avarageAge / users.length);
+    console.log(`Avarage age of users - ${avarageAge}`)
+};
+
+
+
+function getUniqHobbies(users) {
+    let usersHobbies = [];
+    let uniqueHobbies = [];
+    for (let i = 0; i < users.length; i++) {
+        for (j = 0; j < users[i].hobby.length; j++) {
+            usersHobbies.push(users[i].hobby[j]);
+        };
+    };
+    console.log(usersHobbies.join(','));
+
+    usersHobbies.map((el, index, arr) => {
+        if (arr.indexOf(el) === arr.lastIndexOf(el)) {
+            uniqueHobbies.push(el);
+        }
+    });
+    console.log(uniqueHobbies.join(','));
+};
+
+
+getAdmins(USERS);
+
+getAvarageAge(USERS);
+
+getUniqHobbies(USERS);
